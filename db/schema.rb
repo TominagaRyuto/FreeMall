@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 2021_03_04_043139) do
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", default: "", null: false
     t.string "image_id", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_name_kana", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
+    t.string "name", default: "", null: false
+    t.string "name_kana", default: "", null: false
     t.string "postal_code", default: "", null: false
     t.string "address", default: "", null: false
     t.string "telephone_number", default: "", null: false

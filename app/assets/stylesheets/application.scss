@@ -16,3 +16,33 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+body {
+  background-color: #faf0e6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.page_title{
+  border-bottom: groove;
+  padding: 8px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.page_title h1{
+  font-size: 35px;
+}
+
+ul {
+  list-style: none;
+}
