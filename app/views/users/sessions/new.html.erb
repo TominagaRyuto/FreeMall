@@ -1,26 +1,31 @@
-<h2>Log in</h2>
+<div class="page_title">
+  <h1>Sign In</h1>
+  <small class="mt-auto ml-4"><%= render "users/shared/links" %></small>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="container m-5">
+  <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <div class="form-inline col-form-label-lg ml-5">
+      <%= f.label :email　　　　　　 %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="form-inline col-form-label-lg ml-5">
+      <%= f.label :password　　　　 %>
+      <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="d-flex">
+      <% if devise_mapping.rememberable? %>
+        <div class="form-check">
+          <%= f.check_box :remember_me, class:"form-check-input ml-4" %>
+          <%= f.label :remember_me　, class:"form-check-label ml-5" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "　Sign In　", class:"btn btn-primary btn-lg ml-5" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
