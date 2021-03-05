@@ -10,52 +10,52 @@
       <%= f.label :'ユーザー画像　　　　　　　　　' %>
       <%= f.attachment_field :image, class:"form-control-file", class:"form-inline" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'名前　　　　　　　　　　　　　' %>
       <%= f.text_field :name, class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'フリガナ　　　　　　　　　　　' %>
       <%= f.text_field :name_kana, class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :メールアドレス　　　　　　　　 %>
       <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'郵便番号　（ハイフン無し）　　' %>
       <%= f.text_field :postal_code, class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'住所　　　　　　　　　　　　　' %>
       <%= f.text_field :address, class:"form-control", size: 65 %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'電話番号　（ハイフン無し）　　' %>
       <%= f.text_field :telephone_number, class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'ニックネーム　　　　　　　　　' %>
       <%= f.text_field :nickname, class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'パスワード　（６文字以上）　　' %>
       <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
     </div>
-  
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'パスワード（確認用）　　　　　' %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
     </div>
-  
+
     <div class="form-group">
       <span>　　　　　　　　　　　　　　　　</span>
       <%= f.submit "　Sign up　", class:"btn btn-success btn-lg" %>

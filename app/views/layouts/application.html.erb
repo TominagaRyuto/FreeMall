@@ -10,16 +10,9 @@
   </head>
 
   <body class="d-flex">
-    <div class="bg-white">
-      <div class="m-2"><%= image_tag 'logo.jpg', size:"80x80" %></div>
-      <nav>
-        <ul>
-          <li><%= link_to "Sign_Out", destroy_user_session_path, method: :delete %></li>
-        </ul>
-      </nav>
-    </div>
+    <%= render'layouts/sidebar' %>
     <div class="w-100">
-      <header class="bg-white">iiiiiiiiiiii</header>
+      <header class="bg-white sticky-top">iiiiiiiiiiii</header>
       <main>
         <%= yield %>
       </main>

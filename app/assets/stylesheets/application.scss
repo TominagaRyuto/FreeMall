@@ -46,3 +46,10 @@ a {
 ul {
   list-style: none;
 }
+
+.side_bar{
+  position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
