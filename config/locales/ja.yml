@@ -4,12 +4,13 @@ ja:
       user: ユーザー
     attributes:
       user:
+      address:
         name: 名前
+        address: 住所
+        postal_code: 郵便番号
         name_kana: フリガナ
         email: メールアドレス
         nickname: ニックネーム
-        postal_code: 郵便番号
-        address: 住所
         telephone_number: 携帯番号
         password: パスワード
         password_confirmation: パスワード確認

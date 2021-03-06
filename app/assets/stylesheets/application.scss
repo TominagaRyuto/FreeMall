@@ -33,6 +33,7 @@ a {
 }
 
 .page_title{
+  border-top: groove;
   border-bottom: groove;
   padding: 8px 40px;
   display: flex;
@@ -53,7 +54,8 @@ ul a{
 
 .side_bar{
   position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: groove;
 }

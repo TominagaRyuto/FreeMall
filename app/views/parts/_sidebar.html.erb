@@ -11,7 +11,7 @@
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <li class="mt-auto text-center">
           <%= link_to users_path do %>
-            <%= attachment_image_tag @user, :image, fallback: "toppu.png", size: "50x50", class:"rounded-circle" %>
+            <%= attachment_image_tag @user, :image, fallback: "toppu.png", size: "60x60", class:"rounded-circle" %>
           <% end %>
         </li>
       <% else %>
