@@ -1,12 +1,22 @@
-<div class="bg-white text-center pl-5 side_bar">
+<div class="bg-white text-left pl-5 side_bar">
   <nav class="h-100">
     <ul class="h-100 d-flex flex-column px-3">
-      <li class="m-2"><%= image_tag 'logo.jpg', size:"80x80" %></li>
+      <li class="m-2">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.jpg', size:"80x80" %>
+        <% end %>
+      </li>
+      <li><%= link_to 'Home', root_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to "Sign_Out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <li class="mt-auto text-center">
+          <%= link_to users_path do %>
+            <%= attachment_image_tag @user, :image, fallback: "toppu.png", size: "50x50", class:"rounded-circle" %>
+          <% end %>
+        </li>
       <% else %>
-        <li class="mt-auto"><%= link_to "Sign_In", user_session_path, class:"btn btn-primary w-100 mb-3" %></li>
-        <li class=""><%= link_to "Sign_Up", new_user_registration_path, class:"btn btn-success w-100 mb-3" %></li>
+        <li class="mt-auto text-center"><%= link_to "Sign In", user_session_path, class:"btn btn-primary w-100 mb-3" %></li>
+        <li class="text-center"><%= link_to "Sign Up", new_user_registration_path, class:"btn btn-success w-100 mb-3" %></li>
       <% end %>
     </ul>
   </nav>

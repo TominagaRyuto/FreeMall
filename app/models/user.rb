@@ -21,4 +21,5 @@ class User < ApplicationRecord
     create.validates :password, confirmation: true, on: :create
     create.validates :password_confirmation, presence: true, on: :create
   end
+  has_many :addresses, dependent: :destroy
 end
