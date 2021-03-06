@@ -5,9 +5,9 @@
 
 <div class="container m-5">
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+    <%= render 'parts/error_message', model: f.object %>
     <div class="form-inline col-form-label-sm ml-5">
-      <%= f.label :'ユーザー画像　　　　　　　　　' %>
+      <%= f.label :'ユーザー画像（任意）　　　　　' %>
       <%= f.attachment_field :image, class:"form-control-file", class:"form-inline" %>
     </div>
 
@@ -23,7 +23,7 @@
 
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'メールアドレス　　　　　　　　' %>
-      <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+      <%= f.text_field :email, autocomplete: "email", class:"form-control" %>
     </div>
 
     <div class="form-inline col-form-label-sm ml-5">
@@ -37,7 +37,7 @@
     </div>
 
     <div class="form-inline col-form-label-sm ml-5">
-      <%= f.label :'電話番号　（ハイフン無し）　　' %>
+      <%= f.label :'携帯番号　（ハイフン無し）　　' %>
       <%= f.text_field :telephone_number, class:"form-control" %>
     </div>
 

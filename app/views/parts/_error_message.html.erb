@@ -1,5 +1,5 @@
-<% if model.errors.any? %> 
-  <div class = "alert alert-warning">
+<% if model.errors.any? %>
+  <div class = "alert alert-danger w-75">
     <ul>
       <% model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
