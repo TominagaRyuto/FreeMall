@@ -2,10 +2,10 @@
   <h1>Edit</h1>
   <small class="mt-auto ml-2"><%= link_to "Back", :back %></small>
 </div>
-
 <div class="container m-5">
-  <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+  <%= form_with model: @user, url: users_path, local: true do |f| %>
+    <%= render 'parts/error_message', model: f.object %>
+
     <div class="form-inline col-form-label-sm ml-5">
       <%= f.label :'ユーザー画像　　　　　　　　　' %>
       <%= f.attachment_field :image, class:"form-control-file", class:"form-inline" %>
@@ -46,10 +46,9 @@
       <%= f.text_field :nickname, class:"form-control" %>
     </div>
 
-    <div class="form-inline col-form-label-sm border-top w-75 m-5">
-      <lavel>※変更を保存するには<br>現在のパスワードが必要です　　</lavel>
-      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
-      <%= f.submit "Update", class:"btn btn-success ml-5 btn-lg" %>
+    <div class="form-group">
+      <span>　　　　　　　　　　　　　　　</span>
+      <%= f.submit "　Update　", class:"btn btn-success ml-5 btn-lg" %>
     </div>
   <% end %>
 </div>
