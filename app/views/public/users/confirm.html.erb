@@ -1,0 +1,10 @@
+<div class="page_title">
+  <h1>Cancellation?</h1>
+</div>
+<div class="text-center w-auto">
+  <p class="h1 m-5">Do you really want to cancel?</p>
+  <div class="text-center">
+    <%= link_to '　No　', users_path, class:"btn btn-primary btn-lg mx-5" %>
+    <%= link_to '　Yes　', users_cancellation_path, method: :patch, class:"btn btn-danger btn-lg mx-5" %>
+  </div>
+</div>

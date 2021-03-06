@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
-    get 'homes/about'
+      get 'about' => 'homes#about'
     resource :users, only:[:show, :edit, :update]
+      get 'users/confirm' => 'users#confirm', as: 'users_confirm'
+      patch 'users/cancellation' => 'users#cancellation', as: 'users_cancellation'
   end
   devise_for :admins
   devise_for :users

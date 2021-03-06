@@ -16,6 +16,14 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def cancellation
+    @user = current_user
+    @user.update(is_active: false)
+    reset_session
+    flash[:notice] = "Thank you very much. We look forward to seeing you again."
+    redirect_to root_path
+  end
+
   private
 
   def user_params

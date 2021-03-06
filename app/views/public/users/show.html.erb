@@ -2,41 +2,43 @@
   <h1>My Page</h1>
 </div>
 
-<div class="container">
-  <%= attachment_image_tag @user, :image, fallback: "toppu.png", size: "100x100", class:"rounded-circle" %>
-  <table class="table table-borderless">
-    <tr>
-      <th>名前</th>
-      <td><%= @user.name %></td>
-    </tr>
-    <tr>
-      <th>フリガナ</th>
-      <td><%= @user.name_kana %></td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td><%= @user.email %></td>
-    </tr>
-    <tr>
-      <th>郵便番号</th>
-      <td><%= (@user.postal_code).to_s.insert(3, "-") %></td>
-    </tr>
-    <tr>
-      <th>住所</th>
-      <td><%= @user.address %></td>
-    </tr>
-    <tr>
-      <th>電話番号</th>
-      <td><%= (@user.telephone_number) %></td>
-    </tr>
-    <tr>
-      <th>ニックネーム</th>
-      <td><%= @user.nickname %></td>
-    </tr>
-  </table>
+<div class="container m-2">
+  <div class="row">
+    <div class="col-2"><%= attachment_image_tag @user, :image, fallback: "toppu.png", size: "100x100", class:"rounded-circle" %></div>
+    <table class="table table-borderless col-10 mt-5">
+      <tr>
+        <th>名前</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <td><%= @user.name_kana %></td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td><%= (@user.postal_code).to_s.insert(3, "-") %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @user.address %></td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td><%= (@user.telephone_number) %></td>
+      </tr>
+      <tr>
+        <th>ニックネーム</th>
+        <td><%= @user.nickname %></td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 <div class="text-center w-75 m-auto">
   <%= link_to 'Edit',  edit_users_path, class:"btn btn-success btn-sm w-25 mx-3" %>
-  <%= link_to 'Edit',  edit_users_path, class:"btn btn-success btn-sm w-25 mx-3" %>
+  <%= link_to 'cancellation',  users_confirm_path, class:"btn btn-danger btn-sm w-25 mx-3" %>
 </div>
