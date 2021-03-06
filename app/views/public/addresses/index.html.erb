@@ -33,7 +33,7 @@
         <%= address.name %>
       </td>
       <td></td>
-      <td></td>
+      <td><%= link_to 'Delete', address_path(address), method: :delete, class:"btn btn-danger" %></td>
     </tr>
   </table>
 <% end %>
