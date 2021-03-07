@@ -8,14 +8,20 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body class="d-flex">
-    <%= render'parts/sidebar' %>
-    <div class="w-100">
-      <header class="bg-white sticky-top">iiiiiiiiiiii</header>
-      <main>
+    <% if admin_signed_in? %>
+      <%= render'parts/admin/sidebar' %>
+      <main class="bg-secondary w-100 text-white">
         <%= yield %>
       </main>
-    </div>
+    <% else %>
+      <%= render'parts/user/sidebar' %>
+      <div class="w-100">
+        <%= render'parts/user/header' %>
+        <main>
+          <%= yield %>
+        </main>
+      </div>
+    <% end %>
   </body>
 </html>

@@ -1,0 +1,9 @@
+<div class="bg-white text-center pl-5 side_bar w-25">
+  <nav class="vh-100">
+    <ul class="vh-100 d-flex flex-column px-3">
+      <h4 class="text-center mt-2 bg-secondary text-white border border-dark">管理ページ</h4>
+      <li><%= link_to "ショップジャンル", admin_shop_genres_path, class:"border border-dark" %></li>
+      <li class="mt-auto text-center"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-dark" %></li>
+    </ul>
+  </nav>
+</div>

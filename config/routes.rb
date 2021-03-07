@@ -7,6 +7,11 @@ Rails.application.routes.draw do
       patch 'users/cancellation' => 'users#cancellation', as: 'users_cancellation'
     resources :addresses, :except =>[:show, :new]
   end
+
+  namespace :admin do
+    resources :shop_genres, :except => [:show, :new]
+  end
+
   devise_for :admins
   devise_for :users
 end

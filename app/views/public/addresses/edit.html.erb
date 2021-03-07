@@ -3,7 +3,7 @@
 </div>
 
 <%= form_with model: @address, url: address_path, local: true do |f| %>
-  <%= render 'parts/error_message', model: f.object %>
+  <%= render 'parts/user/error_message', model: f.object %>
   <div class="form-inline col-form-label-sm ml-5">
     <%= f.label :'郵便番号（ハイフン無し）　　　　　　　　' %>
     <%= f.text_field :postal_code, class:"form-control" %>

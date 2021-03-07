@@ -1,0 +1,26 @@
+<div class="page_title">
+  <h1>ショップジャンル作成</h1>
+</div>
+
+<div class="container">
+  <%= form_with model: @shop_genre, url: admin_shop_genres_path, local: true do |f| %>
+    <%= render 'parts/admin/error_message', model: f.object %>
+    <div class="form-inline col-form-label-sm ml-5">
+      <%= f.label :'ショップジャンル名' %>
+      <%= f.text_field :name, class:"form-control mx-4", autofocus: true %>
+      <%= f.submit "作成", class:"btn btn-dark" %>
+    </div>
+  <% end %>
+</div>
+
+<table class="table table-sm text-white w-50 mt-5">
+  <% @shop_genres.each do |shop_genre| %>
+    <tr>
+      <td><%= shop_genre.name %></td>
+      <td class="text-right">
+        <%= link_to '編集', edit_admin_shop_genre_path(shop_genre), class:"btn btn-dark btn-sm" %>
+        <%= link_to '削除', admin_shop_genre_path(shop_genre), method: :delete, class:"btn btn-dark btn-sm" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
