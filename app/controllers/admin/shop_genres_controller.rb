@@ -1,7 +1,7 @@
 class Admin::ShopGenresController < ApplicationController
   def index
     @shop_genre = ShopGenre.new
-    @shop_genres = ShopGenre.all
+    @shop_genres = ShopGenre.page(params[:page]).reverse_order
   end
 
   def create

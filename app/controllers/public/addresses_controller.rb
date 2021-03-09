@@ -1,7 +1,7 @@
 class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
-    @addresses = current_user.addresses.all
+    @addresses = current_user.addresses.page(params[:page]).reverse_order
   end
 
   def create
@@ -18,7 +18,7 @@ class Public::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if  @address.update(address_params)
-      redirect_to :index
+      redirect_to addresses_path
     else
       render :edit
     end
