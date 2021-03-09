@@ -1,0 +1,26 @@
+<div class="page_title">
+  <h1>Create Shop Step2</h1>
+</div>
+
+<div class="container m-5">
+  <%= form_with model: @shop, url: shop_path(@shop), local: true do |f| %>
+    <div class="form-inline col-form-label-sm m-4">
+      <%= f.label :'都道府県　　　　　　　　　　　' %>
+      <%= f.select :prefectures, Shop.prefectures.keys.to_a, prompt: '選択してください' %>
+    </div>
+
+    <div class="form-inline col-form-label-sm m-4">
+      <%= f.label :'住所　　　　　　　　　　　　　' %>
+      <%= f.text_field :address, class:"form-control", placeholder:'市区町村　建物名等', size: 65 %>
+    </div>
+
+    <div class="form-inline col-form-label-sm m-4">
+      <%= f.label :'ホームページリンク　　　　　　' %>
+      <%= f.text_field :official_hp, class:"form-control", placeholder:'https://github.com/TominagaRyuto/FreeMall', size: 65 %>
+    </div>
+
+    <div class="text-right ml-4 w-75">
+      <%= f.submit "　Create　", class:"btn btn-success w-25 btn-sm ml-5" %>
+    </div>
+  <% end %>
+</div>

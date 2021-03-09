@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       patch 'users/cancellation' => 'users#cancellation', as: 'users_cancellation'
     resources :addresses, :except =>[:show, :new]
     resources :shops
-    get 'shops/store' => 'shops#store', as: 'shops_store'
+    get 'shop/store' => 'shops#store', as: 'shops_store'
   end
 
   namespace :admin do
