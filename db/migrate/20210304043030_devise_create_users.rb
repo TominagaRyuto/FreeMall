@@ -15,6 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :telephone_number,   null: false, default: ""
       t.boolean :is_active,         null: false, default: "true"
       t.float :point,               null: false, default: "100"
+      t.boolean :shop_active,       null: false, default: "true"
 
 
       ## Recoverable

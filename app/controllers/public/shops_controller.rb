@@ -21,10 +21,16 @@ class Public::ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
+  def edit
+    @shop = current_user.shop
+  end
+
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     if @shop.save
+      @user = current_user
+      @user.update(shop_active: false)
       redirect_to shops_store_path
     else
       @shop_genres = ShopGenre.all
@@ -33,8 +39,10 @@ class Public::ShopsController < ApplicationController
   end
 
   def destroy
-     @shop = Shop.find(params[:id])
+     @shop = current_user.shop
      @shop.destroy
+     @user = current_user
+     @user.update(shop_active: true)
      redirect_to root_path
   end
 
