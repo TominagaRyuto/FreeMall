@@ -1,7 +1,7 @@
 class Shop < ApplicationRecord
   attachment :image
 
-  validates :user_id, :name, :introduction, presence: true
+  validates :user_id, :name, :introduction, presence: true, length: { maximum: 200 }
   validates :user_id,uniqueness: true
   validates :postal_code, length: { is: 7 }, allow_blank: true, numericality: { only_integer: true }
 
