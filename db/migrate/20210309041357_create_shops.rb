@@ -6,7 +6,6 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.string :name,               null: false, default: ""
       t.text :introduction,         null: false, default: ""
       t.integer :prefectures
-      t.string :postal_code
       t.string :address
       t.text :official_hp
       t.string :image_id

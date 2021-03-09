@@ -9,22 +9,21 @@
       <li><%= link_to 'Home', root_path %></li>
       <% if user_signed_in? %>
         <li><%= link_to 'Address', addresses_path %></li>
-        <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <li class="mt-auto mb-3 text-center">
+        <li class="mt-auto mb-2 text-center">
           <%= link_to users_path do %>
             <%= attachment_image_tag current_user, :image, fallback: "toppu.png", size: "60x60", class:"rounded-circle" %>
           <% end %>
         </li>
-
         <% if current_user.shop_active == true %>
-          <li class="text-center"><%= link_to 'Create Shop', new_shop_path, class:"btn btn-success w-50 mb-3" %></li>
+          <li class="text-center"><%= link_to 'Create Shop', new_shop_path, class:"btn btn-success w-50 mb-2" %></li>
         <% else %>
-          <li class="text-center"><%= link_to 'My Shop', shop_path(current_user.shop.id), class:"btn btn-primary w-50 mb-3" %></li>
+          <li class="text-center"><%= link_to 'My Shop', shop_path(current_user.shop.id), class:"btn btn-primary w-50 mb-2" %></li>
         <% end %>
+        <li class="text-center"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn btn-danger w-50 mb-2" %></li>
 
       <% else %>
-        <li class="mt-auto text-center"><%= link_to 'Sign In', user_session_path, class:"btn btn-primary w-50 mb-3" %></li>
-        <li class="text-center"><%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-success w-50 mb-3" %></li>
+        <li class="mt-auto text-center"><%= link_to 'Sign In', user_session_path, class:"btn btn-primary w-50 mb-2" %></li>
+        <li class="text-center"><%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-success w-50 mb-2" %></li>
       <% end %>
     </ul>
   </nav>

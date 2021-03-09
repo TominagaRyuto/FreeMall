@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_095217) do
     t.string "name", default: "", null: false
     t.text "introduction", default: "", null: false
     t.integer "prefectures"
-    t.string "postal_code"
     t.string "address"
     t.text "official_hp"
     t.string "image_id"

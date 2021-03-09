@@ -25,3 +25,9 @@ ja:
         introduction: ショップ説明
         shop_genre: ショップのジャンル
         user_id: あなたのショップ
+      item:
+        name: アイテム名
+        introduction: アイテム説明
+        image: アイテムの画像
+        price: アイテム価格(税抜き)
+        item_genre: アイテムのジャンル

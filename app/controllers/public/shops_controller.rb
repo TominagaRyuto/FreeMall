@@ -50,6 +50,6 @@ class Public::ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:shop_genre_id, :name, :introduction, :prefectures, :postal_code, :address, :official_hp, :image)
+    params.require(:shop).permit(:shop_genre_id, :name, :introduction, :prefectures, :address, :official_hp, :image)
   end
 end

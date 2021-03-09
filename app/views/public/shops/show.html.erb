@@ -1,5 +1,5 @@
 <div class="page_title">
-  <h1><%= @shop.name %></h1>
+  <h4><%= @shop.name %></h4>
   <% if @shop.user_id == current_user.id %>
     <div class="ml-auto"><%= link_to "Edit Shop", edit_shop_path(@shop), class:"btn btn-outline-primary btn-sm bg-white" %></div>
   <% end %>
@@ -14,7 +14,7 @@
 </div>
 
 <div class="page_title">
-  <h3>Items</h3>
+  <h5>Items</h5>
 </div>
 <div class="container">
   <div class="d-flex justify-content-between my-3">
@@ -26,7 +26,7 @@
 </div>
 
 <div class="page_title">
-  <h3>Introduction</h3>
+  <h5>Introduction</h5>
 </div>
 <div class="container m-5">
   <p><%= @shop.introduction %></p>
@@ -34,7 +34,7 @@
 
 <% if @shop.address? %>
   <div class="page_title">
-    <h3>Shop Address</h3>
+    <h5>Shop Address</h5>
   </div>
   <div class="container m-5">
     <p><%= @shop.prefectures + @shop.address %></p>
@@ -43,7 +43,7 @@
 
 <% if @shop.official_hp? %>
   <div class="page_title">
-    <h5>Official Hp</h5>
+    <h6>Official Hp</h6>
   </div>
   <div class="container my-2 ml-4">
     <%= text_url_to_link(h(@shop.official_hp)).html_safe %>

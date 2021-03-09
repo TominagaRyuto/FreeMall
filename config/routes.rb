@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :addresses, :except =>[:show, :new]
     resources :shops
     get 'shop/store' => 'shops#store', as: 'shops_store'
+    resources :items
   end
 
   namespace :admin do
