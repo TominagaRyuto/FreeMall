@@ -11,7 +11,7 @@ class Public::ShopsController < ApplicationController
   def update
     @shop = current_user.shop
     if @shop.update(shop_params)
-      redirect_to root_path
+      redirect_to shop_path(@shop)
     else
       render :store
     end
@@ -23,6 +23,7 @@ class Public::ShopsController < ApplicationController
 
   def edit
     @shop = current_user.shop
+    @shop_genres = ShopGenre.all
   end
 
   def create
