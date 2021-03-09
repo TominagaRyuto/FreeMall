@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :shop_genres, :except => [:show, :new]
+    resources :item_genres, :except => [:show, :new]
   end
 
   devise_for :admins

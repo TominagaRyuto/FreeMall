@@ -17,6 +17,9 @@ ja:
         postal_code: 郵便番号
       shop_genre:
         name: ショップジャンル名
+      item_genre:
+        shop_genre: ショップジャンル
+        name: アイテムジャンル名
       shop:
         name: ショップ名
         introduction: ショップ説明

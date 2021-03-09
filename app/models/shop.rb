@@ -1,12 +1,12 @@
 class Shop < ApplicationRecord
   attachment :image
 
-  validates :user_id, :name, :introduction, presence: true, length: { maximum: 200 }
-  validates :user_id,uniqueness: true
+  validates :name, :introduction, presence: true, length: { maximum: 200 }
+  validates :user_id, uniqueness: true
   validates :postal_code, length: { is: 7 }, allow_blank: true, numericality: { only_integer: true }
 
-  belongs_to :shop_genre
-  belongs_to :user
+  belongs_to :shop_genre, :user
+  has_many :items, dependent: :destroy
 
   enum prefectures: {
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,

@@ -19,7 +19,7 @@
       <td><%= shop_genre.name %></td>
       <td class="text-right">
         <%= link_to '編集', edit_admin_shop_genre_path(shop_genre), class:"btn btn-dark btn-sm" %>
-        <%= link_to '削除', admin_shop_genre_path(shop_genre), method: :delete, class:"btn btn-dark btn-sm" %>
+        <%= link_to '削除', admin_shop_genre_path(shop_genre), method: :delete, class:"btn btn-dark btn-sm", data: {confirm: '本当に削除しますか？'} %>
       </td>
     </tr>
   <% end %>

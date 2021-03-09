@@ -1,0 +1,31 @@
+<div class="page_title">
+  <h1>アイテムジャンル作成</h1>
+</div>
+
+<div class="container">
+  <%= form_with model: @item_genre, url: admin_item_genres_path, local: true do |f| %>
+    <%= render 'parts/admin/error_message', model: f.object %>
+    <div class="form-inline col-form-label-sm ml-5">
+      <%= f.label :'ショップジャンル　　　' %>
+      <%= f.collection_select(:shop_genre_id, @shop_genres, :id, :name, prompt: "選択して下さい", class: 'form-control') %>
+    </div>
+    <div class="form-inline col-form-label-sm ml-5">
+      <%= f.label :'アイテムジャンル名' %>
+      <%= f.text_field :name, class:"form-control mx-4", autofocus: true %>
+      <%= f.submit "作成", class:"btn btn-dark" %>
+    </div>
+  <% end %>
+</div>
+
+<table class="table table-sm text-white w-50 mt-5">
+  <% @item_genres.each do |item_genre| %>
+    <tr>
+      <td><%= item_genre.shop_genre.name %></td>
+      <td><%= item_genre.name %></td>
+      <td class="text-right">
+        <%= link_to '編集', edit_admin_item_genre_path(item_genre), class:"btn btn-dark btn-sm" %>
+        <%= link_to '削除', admin_item_genre_path(item_genre), method: :delete, class:"btn btn-dark btn-sm", data: {confirm: '本当に削除しますか？'} %>
+      </td>
+    </tr>
+  <% end %>
+</table>

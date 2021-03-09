@@ -1,0 +1,14 @@
+<div class="page_title">
+  <h1>アイテムジャンル編集</h1>
+</div>
+
+<div class="container">
+  <%= form_with model: @item_genre, url: admin_item_genre_path, local: true do |f| %>
+    <%= render 'parts/admin/error_message', model: f.object %>
+    <div class="form-inline col-form-label-sm ml-5">
+      <%= f.label :'アイテム名' %>
+      <%= f.text_field :name, class:"form-control mx-4", autofocus: true %>
+      <%= f.submit "変更", class:"btn btn-dark" %>
+    </div>
+  <% end %>
+</div>
