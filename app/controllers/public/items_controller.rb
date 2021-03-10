@@ -25,6 +25,22 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      @item_genres = current_user.shop.shop_genre.item_genres.all
+      render :edit
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to shop_path(@item.shop)
+  end
+
   private
 
   def item_params

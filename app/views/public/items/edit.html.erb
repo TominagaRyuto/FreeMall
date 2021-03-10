@@ -3,7 +3,7 @@
 </div>
 
 <div class="container m-5">
-  <%= form_with model: @item, url: items_path, local: true do |f| %>
+  <%= form_with model: @item, url: item_path, local: true do |f| %>
     <%= render 'parts/user/error_message', model: f.object %>
     <div class="form-inline col-form-label-sm m-4">
       <%= f.label :'アイテム画像　　　　　　　　　' %>
@@ -29,7 +29,7 @@
     <div class="form-inline col-form-label-sm m-4">
       <%= f.label :'販売ステータス　　　　　　　　' %>
       <%= f.radio_button :is_active, :true %>
-      <%= f.label :is_active, "販売中" %>
+      <%= f.label :is_active, "販売中", class:"mr-3" %>
       <%= f.radio_button :is_active, :false %>
       <%= f.label :is_active, "売り切れ" %>
     </div>
