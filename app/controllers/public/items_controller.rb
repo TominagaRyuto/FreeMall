@@ -1,7 +1,6 @@
 class Public::ItemsController < ApplicationController
   def new
     @item = Item.new
-    # @shop = current_user.shop
     @item_genres = current_user.shop.shop_genre.item_genres.all
   end
 
@@ -9,12 +8,16 @@ class Public::ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.shop_id = current_user.shop.id
     if @item.save
-      redirect_to items_path
+      redirect_to item_path(@item)
     else
       @shop = current_user.shop
       @item_genres = @shop.shop_genre.item_genres.all
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private

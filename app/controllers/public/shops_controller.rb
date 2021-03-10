@@ -19,6 +19,7 @@ class Public::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @items = @shop.items.page(params[:page]).per(4).order("id DESC")
   end
 
   def edit
