@@ -18,6 +18,7 @@
           <li class="text-center"><%= link_to 'Create Shop', new_shop_path, class:"btn btn-success w-50 mb-2" %></li>
         <% else %>
           <li class="text-center"><%= link_to 'My Shop', shop_path(current_user.shop.id), class:"btn btn-primary w-50 mb-2" %></li>
+          <li class="text-center"><%= link_to 'Create Item', new_item_path, class:"btn btn-success w-50 mb-2" %></li>
         <% end %>
         <li class="text-center"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn btn-danger w-50 mb-2" %></li>
 
