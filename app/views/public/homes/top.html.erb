@@ -1,2 +1,19 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="page_title">
+  <h1>Top</h1>
+</div>
+
+<div class="container">
+  <% @shops.each do |shop| %>
+    <div class="d-flex border-bottom">
+      <%= link_to shop_path(shop) do %>
+        <%= attachment_image_tag shop, :image, fallback: "no_image.jpg", size: "220x220", class:"my-5" %>
+        <p class="my-5 ml-3 pt-2 d-flex flex-column">
+          <%= shop.name %><br>
+      <% end %>
+        <small class="my-3"><%= shop.introduction.truncate(50) %></small>
+        <small class="mt-auto">User　<%= shop.user.nickname %>　/　更新日時　<%= shop.created_at.strftime('%m/%d(%H:%M)') %></small>
+      </p>
+
+    </div>
+  <% end %>
+</div>
