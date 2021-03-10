@@ -1,4 +1,16 @@
 class Public::ItemsController < ApplicationController
+  def index
+    case params[:order_sort]
+    when "0"
+      @shop = Shop.find(params[:id])
+      @items = @shop.items.page(params[:page]).order("id DESC")
+      @page_title = @shop.name
+    else
+      @items = Item.page(params[:page]).order("id DESC")
+      @page_title = "New"
+    end
+  end
+
   def new
     @item = Item.new
     @item_genres = current_user.shop.shop_genre.item_genres.all

@@ -17,11 +17,13 @@
   <small class="ml-3"><%= @item.introduction %></small>
   <div class="text-center">
     <% if @item.is_active == true %>
-      <p class="h3 mt-5"><%= TAX(@item.price) %></p>
+      <p class="h3 mt-5"><%= TAX(@item.price) %></p><!-- application_helperから引用 -->
     <% else %>
       <p class="h3 mt-5">Sold Out</p>
     <% end %>
-    <%= link_to "　Edit Item　", edit_item_path, class:"btn btn-success btn-lg my-3" %>
-    <%= link_to "　Delete Item　", item_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger btn-lg my-3" %>
+    <% if @item.shop.user == current_user %>
+      <%= link_to "　Edit Item　", edit_item_path, class:"btn btn-success btn-lg my-3" %>
+      <%= link_to "　Delete Item　", item_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger btn-lg my-3" %>
+    <% end %>
   </div>
 </div>

@@ -20,15 +20,15 @@
   <div class="d-flex my-3">
     <% @items.each do |item| %>
       <%= link_to item_path(item) do %>
-        <div class="d-flex flex-column">
-          <div class="mr-3"><%= attachment_image_tag item, :image, fallback: "no_image.jpg", size: "220x220" %></div>
-          <p class="text-center mt-1"><%= item.name %></p>
+        <div class="d-flex flex-column text-center">
+          <div class="mr-5"><%= attachment_image_tag item, :image, fallback: "no_image.jpg", size: "220x220" %></div>
+          <p class="mt-1 text-dark"><%= item.name.truncate(12) %></p>
         </div>
       <% end %>
     <% end %>
   </div>
   <div class="d-flex">
-    <div class="ml-auto"><%= paginate @items %></div>
+    <div class="ml-auto"><%= link_to "See more", items_path(order_sort: 0, id: @shop.id), class:"h4" %></div><!--item/indexで遷移元により表示するアイテムを変えたい為、リンクにパラメーターを付与-->
   </div>
 </div>
 
@@ -52,7 +52,7 @@
   <div class="page_title">
     <h6>Official Hp</h6>
   </div>
-  <div class="container my-2 ml-4">
+  <div class="container my-2 ml-5">
     <%= text_url_to_link(h(@shop.official_hp)).html_safe %>
   </div>
 <% end %>
