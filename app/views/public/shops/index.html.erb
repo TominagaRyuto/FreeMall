@@ -1,0 +1,22 @@
+<div class="page_title">
+  <h1>New Shops</h1>
+</div>
+
+<div class="container my-4">
+  <div class="d-flex flex-wrap">
+    <% @shops.each do |shop| %>
+      <%= link_to shop_path(shop) do %>
+        <div class="mr-5 mt-3">
+          <div><%= attachment_image_tag shop, :image, fallback: "no_image.jpg", size: "220x220" %></div>
+          <div class="text-center">
+            <span class="text-dark"><%= shop.name.truncate(10) %></span><br>
+      <% end %>
+            <small>
+              <%= shop.user.nickname.truncate(12) %> <span class="mr-2"></span>
+              <%= shop.created_at.strftime('%m/%d(%H:%M)') %>
+            </small>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,7 @@
 class Public::ShopsController < ApplicationController
+  def index
+    @shops = Shop.page(params[:page]).order("id DESC")
+  end
   def new
     @shop = Shop.new
     @shop_genres = ShopGenre.all
