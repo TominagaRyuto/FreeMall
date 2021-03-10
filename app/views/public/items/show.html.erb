@@ -12,4 +12,11 @@
     <%= attachment_image_tag @add_item_images, :image, fallback: "no_image.jpg", size: "220x220" %>
     <%= attachment_image_tag @add_item_images, :image, fallback: "no_image.jpg", size: "220x220" %>
   </div>
+  <p class="mb-5"><%= @item.name %></p>
+  <h5>introduction</h5>
+  <small class="ml-3"><%= @item.introduction %></small>
+  <div class="text-center">
+    <p class="h3 mt-5"><%= TAX(@item.price) %></p>
+    <%= link_to "　Edit Item　", edit_item_path, class:"btn btn-success btn-lg my-3" %>
+  </div>
 </div>

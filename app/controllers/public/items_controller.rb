@@ -20,6 +20,11 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item_genres = current_user.shop.shop_genre.item_genres.all
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def item_params
