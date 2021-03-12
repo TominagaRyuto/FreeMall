@@ -4,7 +4,7 @@
     <div class="ml-auto"><%= link_to "Edit Shop", edit_shop_path(@item.shop), class:"btn btn-outline-primary btn-sm bg-white" %></div>
   <% end %>
 </div>
-
+<%= render 'parts/user/error_message', model: @cart_item %><!-- エラーメッセージをサイト上部に表示したかった為、モデルを指定 -->
 <div class="container">
   <div class="d-flex justify-content-between my-3">
     <%= attachment_image_tag @item, :image, fallback: "no_image.jpg", size: "220x220" %>
@@ -26,8 +26,9 @@
       <%= link_to "　Delete Item　", item_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger btn-lg my-3" %>
     <% else %>
       <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-        <%= f.select :amount, (1..@item.stock), include_blank: 'Please select a amount' %>
-        <%= f.submit "　Add to Cart　", class:"btn btn-success btn-lg my-3" %>
+        <%= f.select :amount, (1..@item.stock), include_blank: 'Please select a amount' %><br><!-- １～アイテムの在庫（MAX50）までの範囲 -->
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.submit "　Add to Cart　", item_id: @item.id, class:"btn btn-success btn-lg my-3" %>
       <% end %>
     <% end %>
   </div>

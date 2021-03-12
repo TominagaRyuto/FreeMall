@@ -32,3 +32,5 @@ ja:
         price: アイテム価格(税抜き)
         item_genre: アイテムのジャンル
         stock: アイテムの在庫数
+      cart_item:
+        amount: 在庫数

@@ -1,0 +1,29 @@
+<div class="page_title">
+  <h1>Cart</h1>
+</div>
+<table class="table">
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= attachment_image_tag cart_item.item, :image, fallback: "no_image.jpg", size: "50x50" %></td>
+        <td><%= cart_item.item.name.truncate(12) %></td>
+        <td><%= TAX(cart_item.item.price) %></td>
+        <td>
+          <%= form_with model: cart_item, url: cart_item_path(cart_item), local: true do |f| %>
+            <%= f.select :amount, (1..cart_item.item.stock) %>
+            <%= f.submit "Change", class:"btn btn-outline-success btn-sm bg-white" %>
+          <% end %>
+        </td>
+        <td><%= TAX(cart_item.item.price * cart_item.amount) %></td>
+        <% @sum += (cart_item.item.price * cart_item.amount) %>
+        <td><%= link_to 'Deselect Item', cart_item_path(cart_item), method: :delete, class:'btn btn-outline-danger bg-white btn-sm' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="d-flex mt-5">
+  <p class="h4 mr-4 ml-auto">Sub Total</p>
+  <p class="h4"><%= TAX(@sum) %></p>
+  <div><%= link_to '　Next　', root_path, class:'btn btn-primary mx-5' %></div>
+</div>

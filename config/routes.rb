@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :items do
       resource :likes, only: [:create, :destroy]
     end
-    resource :cart_items, :except => [:show, :new, :edit]
+    resources :cart_items, :except => [:show, :new, :edit]
   end
 
   namespace :admin do

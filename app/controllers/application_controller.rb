@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  TAX = 1.1
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
