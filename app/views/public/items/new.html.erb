@@ -27,9 +27,15 @@
     </div>
 
     <div class="form-inline col-form-label-sm m-4 ">
+      <%= f.label :'在庫数　　　　　　　　　　　　' %>
+      <%= f.select :stock, (1..100), include_blank: '選択して下さい' %>
+    </div>
+
+    <div class="form-inline col-form-label-sm m-4 ">
       <%= f.label :'アイテムジャンル　　　　　　　' %>
       <%= f.collection_select(:item_genre_id, @item_genres, :id, :name, prompt: "選択して下さい", class: 'form-control') %>
       <%= f.submit "　Create　", class:"btn btn-success w-25 btn-sm ml-5" %>
     </div>
+
   <% end %>
 </div>

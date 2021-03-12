@@ -12,8 +12,8 @@
     <%= attachment_image_tag @add_item_images, :image, fallback: "no_image.jpg", size: "220x220" %>
     <%= attachment_image_tag @add_item_images, :image, fallback: "no_image.jpg", size: "220x220" %>
   </div>
-  <p class="mb-5"><%= @item.name %></p>
-  <h5>introduction</h5>
+  <p class="mb-5 h3"><%= @item.name %><small class="h6">×<%= @item.stock %>stock</small></p>
+  <h5>~introduction~</h5>
   <small class="ml-3"><%= @item.introduction %></small>
   <div class="text-center">
     <% if @item.is_active == true %>
@@ -24,6 +24,11 @@
     <% if @item.shop.user == current_user %>
       <%= link_to "　Edit Item　", edit_item_path, class:"btn btn-success btn-lg my-3" %>
       <%= link_to "　Delete Item　", item_path, method: :delete, data: {confirm: "本当に削除しますか？"}, class:"btn btn-danger btn-lg my-3" %>
+    <% else %>
+      <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+        <%= f.select :amount, (1..@item.stock), include_blank: 'Please select a amount' %>
+        <%= f.submit "　Add to Cart　", class:"btn btn-success btn-lg my-3" %>
+      <% end %>
     <% end %>
   </div>
 </div>

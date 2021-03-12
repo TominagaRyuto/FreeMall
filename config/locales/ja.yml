@@ -31,3 +31,4 @@ ja:
         image: アイテムの画像
         price: アイテム価格(税抜き)
         item_genre: アイテムのジャンル
+        stock: アイテムの在庫数
