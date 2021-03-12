@@ -1,12 +1,17 @@
 class Public::ItemsController < ApplicationController
   def index
+    # 遷移元により@itemsに渡す値とページタイトルを変動させる為、繊維元のリンクに値を持たせ条件分岐
     case params[:order_sort]
     when "0"
       @shop = Shop.find(params[:id])
-      @items = @shop.items.page(params[:page]).order("id DESC")
+      @items = @shop.items.order("id DESC")
       @page_title = @shop.name
+    when "1"
+      @user = current_user
+      @items = @user.like_items.order("id DESC")
+      @page_title = "Like"
     else
-      @items = Item.page(params[:page]).order("id DESC")
+      @items = Item.order("id DESC")
       @page_title = "New"
     end
   end
