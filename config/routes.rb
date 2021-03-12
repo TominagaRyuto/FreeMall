@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
     end
     resources :cart_items, :except => [:show, :new, :edit]
+      delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
   end
 
   namespace :admin do

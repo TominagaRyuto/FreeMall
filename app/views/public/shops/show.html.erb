@@ -5,11 +5,11 @@
   <% end %>
 </div>
 <div class="container">
-  <div class="d-flex justify-content-between my-3">
-    <%= attachment_image_tag @shop, :image, fallback: "no_image.jpg", size: "220x220" %>
-    <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220" %>
-    <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220" %>
-    <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220" %>
+  <div class="d-flex">
+    <%= attachment_image_tag @shop, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
+    <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
+    <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
+    <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
   </div>
 </div>
 
@@ -21,7 +21,7 @@
     <% @items.each do |item| %>
       <%= link_to item_path(item) do %>
         <div class="d-flex flex-column text-center">
-          <div class="mr-5"><%= attachment_image_tag item, :image, fallback: "no_image.jpg", size: "220x220" %></div>
+          <div class="mr-3"><%= attachment_image_tag item, :image, fallback: "no_image.jpg", size: "220x220" %></div>
           <p class="mt-1 text-dark"><%= item.name.truncate(12) %></p>
         </div>
       <% end %>

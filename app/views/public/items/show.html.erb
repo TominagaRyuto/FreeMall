@@ -28,7 +28,7 @@
       <%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
         <%= f.select :amount, (1..@item.stock), include_blank: 'Please select a amount' %><br><!-- １～アイテムの在庫（MAX50）までの範囲 -->
         <%= f.hidden_field :item_id, :value => @item.id %>
-        <%= f.submit "　Add to Cart　", item_id: @item.id, class:"btn btn-success btn-lg my-3" %>
+        <%= f.submit "　Add to Cart　", item_id: @item.id, class:"btn btn-success btn-lg my-3" %><!-- カート追加時に在庫を選択しなかった場合、cart_itemsコントローラーからrenderでitem/showを呼び出す際、findメソッドを使用する為submitにパラメーターを付与 -->
       <% end %>
     <% end %>
   </div>

@@ -1,4 +1,4 @@
-<div class="bg-white text-left pl-5 side_bar w-25">
+<div class="bg-white text-left pl-5 side_bar">
   <nav class="vh-100">
     <ul class="vh-100 d-flex flex-column px-3">
       <li class="m-2 text-center">
@@ -16,16 +16,16 @@
           <% end %>
         </li>
         <% if current_user.shop_active == true %>
-          <li class="text-center"><%= link_to 'Create Shop', new_shop_path, class:"btn btn-success w-50 mb-2" %></li>
+          <li class="text-center"><%= link_to 'Create Shop', new_shop_path, class:"btn btn-success w-50 mb-2 btn-sm" %></li>
         <% else %>
-          <li class="text-center"><%= link_to 'My Shop', shop_path(current_user.shop.id), class:"btn btn-primary w-50 mb-2" %></li>
-          <li class="text-center"><%= link_to 'Create Item', new_item_path, class:"btn btn-success w-50 mb-2" %></li>
+          <li class="text-center"><%= link_to 'Create Item', new_item_path, class:"btn btn-success w-50 mb-2 btn-sm" %></li>
+          <li class="text-center"><%= link_to 'My Shop', shop_path(current_user.shop.id), class:"btn btn-primary w-50 mb-2 btn-sm" %></li>
         <% end %>
-        <li class="text-center"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn btn-danger w-50 mb-2" %></li>
+        <li class="text-center"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class:"btn btn-danger w-50 mb-2 btn-sm" %></li>
 
       <% else %>
-        <li class="mt-auto text-center"><%= link_to 'Sign In', user_session_path, class:"btn btn-primary w-50 mb-2" %></li>
-        <li class="text-center"><%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-success w-50 mb-2" %></li>
+        <li class="mt-auto text-center"><%= link_to 'Sign In', user_session_path, class:"btn btn-primary w-50 mb-2 btn-sm" %></li>
+        <li class="text-center"><%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-success w-50 mb-2 btn-sm" %></li>
       <% end %>
     </ul>
   </nav>

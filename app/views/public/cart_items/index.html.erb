@@ -1,5 +1,7 @@
-<div class="page_title">
+<div class="page_title d-flex">
   <h1>Cart</h1>
+  <%= link_to 'Continue Shopping', root_path, class:'btn btn-primary btn-sm ml-auto' %>
+  <%= link_to 'Deselect all Items', cart_item_destroy_all_path, method: :delete, data: {confirm: '本当にカートを空にしてよろしいですか？'}, class:'btn btn-danger btn-sm ml-3' %>
 </div>
 <table class="table">
   <tbody>
@@ -16,14 +18,18 @@
         </td>
         <td><%= TAX(cart_item.item.price * cart_item.amount) %></td>
         <% @sum += (cart_item.item.price * cart_item.amount) %>
-        <td><%= link_to 'Deselect Item', cart_item_path(cart_item), method: :delete, class:'btn btn-outline-danger bg-white btn-sm' %></td>
+        <td><%= link_to 'Deselect Item', cart_item_path(cart_item), data: {confirm: "#{cart_item.item.name}をカートから削除しますか？"}, method: :delete, class:'btn btn-outline-danger bg-white btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<div class="d-flex mt-5">
-  <p class="h4 mr-4 ml-auto">Sub Total</p>
-  <p class="h4"><%= TAX(@sum) %></p>
-  <div><%= link_to '　Next　', root_path, class:'btn btn-primary mx-5' %></div>
-</div>
+<% if @sum == 0 %>
+  <p class="text-center h1 mt-5">There is no contents in the cart</p>
+<% else %>
+  <div class="d-flex mt-5">
+    <p class="h4 mr-4 ml-auto">Sub Total</p>
+    <p class="h4"><%= TAX(@sum) %></p>
+    <div><%= link_to '　Next　', root_path, class:'btn btn-primary mx-5' %></div>
+  </div>
+<% end %>
