@@ -11,7 +11,8 @@
           <div class="text-center">
             <span class="text-dark"><%= item.name.truncate(10) %></span><br>
       <% end %>
-            <%= TAX(item.price).truncate(10) %><br><!-- application_helperから引用 -->
+            <%= TAX(item.price).truncate(9) %><!-- application_helperから引用 -->
+            <%= render'parts/user/like', item: item %><br><!-- いいね機能 -->
             <small>
               <%= link_to shop_path(item.shop) do %>
                 <%= item.shop.name.truncate(10) %>

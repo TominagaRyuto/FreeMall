@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable
 
+  def already_liked?(item)
+    self.likes.exists?(item_id: item.id)
+  end
+
   def active_for_authentication?
     super && (self.is_active == true)
   end
@@ -22,5 +26,6 @@ class User < ApplicationRecord
     create.validates :password_confirmation, presence: true, on: :create
   end
   has_many :addresses, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one :shop
 end
