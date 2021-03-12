@@ -8,6 +8,7 @@
       </li>
       <li><%= link_to 'Home', root_path %></li>
       <% if user_signed_in? %>
+        <li><%= link_to 'Cart', cart_items_path %></li>
         <li><%= link_to "Likes", items_path(order_sort: 1) %></li><!--item/indexで遷移元により表示するアイテムを変えたい為、リンクにパラメーターを付与-->
         <li><%= link_to 'Addresses', addresses_path %></li>
         <li class="mt-auto mb-2 text-center">
