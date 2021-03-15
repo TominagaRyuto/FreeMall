@@ -27,6 +27,7 @@ class User < ApplicationRecord
   end
   has_many :cart_items, dependent: :destroy
   has_many :addresses, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_items, through: :likes, source: :item
   has_one :shop
