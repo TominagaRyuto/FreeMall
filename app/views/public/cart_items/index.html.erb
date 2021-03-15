@@ -9,7 +9,7 @@
       <tr>
         <td><%= attachment_image_tag cart_item.item, :image, fallback: "no_image.jpg", size: "50x50" %></td>
         <td><%= cart_item.item.name.truncate(12) %></td>
-        <td><%= TAX(cart_item.item.price) %></td>
+        <td><%= TAX(cart_item.item.price) %></td><!-- TAX = application_helperから引用 -->
         <td>
           <%= form_with model: cart_item, url: cart_item_path(cart_item), local: true do |f| %>
             <%= f.select :amount, (1..cart_item.item.stock) %>

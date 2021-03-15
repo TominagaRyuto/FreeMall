@@ -12,7 +12,10 @@
     <%= attachment_image_tag @add_item_images, :image, fallback: "no_image.jpg", size: "220x220" %>
     <%= attachment_image_tag @add_item_images, :image, fallback: "no_image.jpg", size: "220x220" %>
   </div>
-  <p class="mb-5 h3"><%= @item.name %><small class="h6">×<%= @item.stock %>stock</small></p>
+  <div class="d-flex">
+    <p class="mb-5 h3"><%= @item.name %><small class="h6">×<%= @item.stock %>stock</small></p>
+    <div class="ml-auto"><%= render'parts/user/like', item: @item %><span>likes</span></div><!-- いいね機能 -->
+  </div>
   <h5>~introduction~</h5>
   <small class="ml-3"><%= @item.introduction %></small>
   <div class="text-center">

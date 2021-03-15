@@ -5,7 +5,7 @@
   <% end %>
 </div>
 <div class="container">
-  <div class="d-flex">
+  <div class="d-flex my-3">
     <%= attachment_image_tag @shop, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
     <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
     <%= attachment_image_tag @add_shop_images, :image, fallback: "no_image.jpg", size: "220x220", class:'mr-3' %>
@@ -28,7 +28,9 @@
     <% end %>
   </div>
   <div class="d-flex">
-    <div class="ml-auto"><%= link_to "See more", items_path(order_sort: 0, id: @shop.id), class:"h4" %></div><!--item/indexで遷移元により表示するアイテムを変えたい為、リンクにパラメーターを付与-->
+    <% if @items.count == 4 %>
+      <div class="ml-auto"><%= link_to "See more", items_path(order_sort: 0, id: @shop.id), class:"h4" %></div><!--item/indexで遷移元により表示するアイテムを変えたい為、リンクにパラメーターを付与-->
+    <% end %>
   </div>
 </div>
 

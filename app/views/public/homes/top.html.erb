@@ -3,15 +3,20 @@
 </div>
 
 <div class="container">
-  <% @shops.each do |shop| %>
+  <% @items.each do |item| %>
     <div class="d-flex border-bottom">
-      <%= link_to shop_path(shop) do %>
-        <%= attachment_image_tag shop, :image, fallback: "no_image.jpg", size: "220x220", class:"my-5" %>
+      <%= link_to item_path(item) do %>
+        <%= attachment_image_tag item, :image, fallback: "no_image.jpg", size: "220x220", class:"my-5" %>
         <p class="my-5 ml-3 pt-2 d-flex flex-column">
-          <%= shop.name %><br>
+          <%= item.name %><br>
       <% end %>
-        <small class="my-3"><%= shop.introduction.truncate(50) %></small>
-        <small class="mt-auto">User　<%= shop.user.nickname %>　/　更新日時　<%= shop.created_at.strftime('%m/%d(%H:%M)') %></small>
+        <small class="my-3"><%= item.introduction.truncate(50) %></small>
+        <small class="mt-auto">
+          <%= link_to shop_path(item.shop) do %>
+            <%= item.shop.name.truncate(15) %>
+          <% end %>
+            /<%= item.updated_at.strftime('%m/%d(%H:%M)') %>
+        </small>
       </p>
 
     </div>

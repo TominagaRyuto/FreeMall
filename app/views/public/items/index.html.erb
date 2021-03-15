@@ -6,12 +6,12 @@
   <div class="d-flex flex-wrap">
     <% @items.each do |item| %>
       <%= link_to item_path(item) do %>
-        <div class="mr-5 mt-3">
+        <div class="mr-3 mt-3">
           <div><%= attachment_image_tag item, :image, fallback: "no_image.jpg", size: "220x220" %></div>
           <div class="text-center">
             <span class="text-dark"><%= item.name.truncate(10) %></span><br>
       <% end %>
-            <%= TAX(item.price).truncate(9) %><!-- application_helperから引用 -->
+            <%= TAX(item.price).truncate(9) %><!-- TAX = application_helperから引用 -->
             <%= render'parts/user/like', item: item %><br><!-- いいね機能 -->
             <small>
               <%= link_to shop_path(item.shop) do %>

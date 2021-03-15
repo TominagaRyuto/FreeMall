@@ -6,6 +6,14 @@ class Public::CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.new(cart_item_params)
+    # カート内に同じ商品があった場合、数量だけ変更する処理(10~16)
+    @cart_items = current_user.cart_items
+    @cart_items.each do |cart_item|
+      if cart_item.item.id == @cart_item.item.id
+        @cart_item.amount += cart_item.amount
+        cart_item.destroy
+      end
+    end
     @cart_item.user_id = current_user.id
     if @cart_item.save
       redirect_to cart_items_path
