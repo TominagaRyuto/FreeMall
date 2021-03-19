@@ -1,5 +1,5 @@
 <div class="page_title">
-  <h4><%= @item.shop.name %></h4>
+  <h1 class="h4"><%= @item.shop.name %></h1>
   <% if @item.shop.user_id == current_user.id %>
     <div class="ml-auto"><%= link_to "Edit Shop", edit_shop_path(@item.shop), class:"btn btn-outline-primary btn-sm bg-white" %></div>
   <% end %>
@@ -14,7 +14,7 @@
   </div>
   <div class="d-flex">
     <p class="mb-5 h3"><%= @item.name %><small class="h6">×<%= @item.stock %>stock</small></p>
-    <div class="ml-auto"><%= render'parts/user/like', item: @item %><span>likes</span></div><!-- いいね機能 -->
+    <div class="ml-auto"><%= render'parts/user/like', item: @item %><span>likers</span></div><!-- いいね機能 -->
   </div>
   <h5>~introduction~</h5>
   <small class="ml-3"><%= @item.introduction %></small>
