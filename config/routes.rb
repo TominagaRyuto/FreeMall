@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
     resources :cart_items, :except => [:show, :new, :edit]
       delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
+    resources :orders, :except =>[:update, :destroy, :edit]
+      post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
   end
 
   namespace :admin do

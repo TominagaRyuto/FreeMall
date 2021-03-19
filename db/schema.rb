@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2021_03_15_151418) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "shop_id", null: false
     t.string "postal_code", default: "", null: false
     t.string "address", default: "", null: false
     t.string "name", default: "", null: false
