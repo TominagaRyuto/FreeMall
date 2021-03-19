@@ -1,3 +1,52 @@
 <div class="page_title">
   <h1>Confirm Order Information</h1>
 </div>
+
+<div class="container mx-5 my-3">
+  <div class="row">
+    <table class="table table-sm col-7 mr-5">
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= attachment_image_tag cart_item.item, :image, fallback: "no_image.jpg", size: "50x50" %></td>
+          <td><%= cart_item.item.name %></td>
+          <td><%= TAX(cart_item.item.price) %></td>
+          <td>×<%= cart_item.amount %></td>
+          <td><%= TAX(cart_item.item.price*cart_item.amount) %></td>
+        </tr>
+        <% @sum += cart_item.item.price*cart_item.amount %>
+      <% end %>
+    </table>
+    <table class="table table-dark col-3 table-bordered">
+      <tr>
+        <th>Sub Total</th>
+        <td><%= TAX(@sum) %></td>
+      </tr>
+      <tr>
+        <th>Shipping Cost</th>
+        <td>￥<%= @order.shipping_cost %></td>
+      </tr>
+      <tr>
+        <th>Total</th>
+        <td><%= TAX(@sum+@order.shipping_cost)%></td>
+      </tr>
+    </table>
+  </div>
+  <p class="h4">Payment Method</p>
+  <p class="ml-2"><%= @order.payment_method %></p>
+  <p class="h4">Shipping Address</p>
+  <p class="ml-2">
+    〒<%= @order.postal_code.to_s.insert(3, "-") %><br>
+    <%= @order.address %><br>
+    <%= @order.name %>
+  </p>
+</div>
+
+<%= form_with model: @order, url: orders_path, local: true do |f| %>
+  <%= f.hidden_field :user_id, :value => @order.user_id %>
+  <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+  <%= f.hidden_field :address, :value => @order.address %>
+  <%= f.hidden_field :name, :value => @order.name %>
+  <%= f.hidden_field :total_payment, :value => TAX(@sum+@order.shipping_cost) %>
+  <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+  <%= f.submit "Order Confirmed", class:"btn btn-success" %>
+<% end %>

@@ -6,6 +6,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    @order.postal_code.slice!(3)
+    @order.save
+    redirect_to root_path
   end
 
   def new
@@ -14,6 +18,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @sum = 0
     @cart_items = current_user.cart_items
     @order = Order.new(order_params)
     @order.user_id = current_user.id
