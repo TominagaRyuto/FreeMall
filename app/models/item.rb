@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :item_genre
   has_many :likes, dependent: :destroy
   has_many :cart_items, dependent: :destroy
+  has_many :order_items, dependent: :destroy
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?

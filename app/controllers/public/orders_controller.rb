@@ -1,5 +1,7 @@
 class Public::OrdersController < ApplicationController
   def index
+    @orders = current_user.orders
+    binding.pry
   end
 
   def show
