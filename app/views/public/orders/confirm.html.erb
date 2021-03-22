@@ -46,5 +46,5 @@
   <%= f.hidden_field :name, :value => @order.name %>
   <%= f.hidden_field :total_payment, :value => TAX(@sum+@order.shipping_cost) %>
   <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-  <%= f.submit "Order Confirmed", class:"btn btn-success" %>
+  <div class="text-center"><%= f.submit "Order Confirmed", class:"btn btn-success btn-lg my-3" %></div>
 <% end %>

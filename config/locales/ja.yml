@@ -33,7 +33,7 @@ ja:
         item_genre: アイテムのジャンル
         stock: アイテムの在庫数
       cart_item:
-        amount: 在庫数
+        amount: 数量
       order:
         name: 宛名
         postal_code: 郵便番号

@@ -17,13 +17,15 @@
       <%= f.label :'My Address' %>
       <p class="ml-3">〒<%= current_user.postal_code.to_s.insert(3, "-") + current_user.address %></p>
     </div>
-    <div class="form-group ml-5 mt-3">
-      <%= f.radio_button :shipping, 2 %>
-      <%= f.label :'Select Address' %><br>
-      <div class="ml-3">
-        <%= f.collection_select(:address_id, @addresses, :id, :full_address) %>
+    <% if @addresses.present?%>
+      <div class="form-group ml-5 mt-3">
+        <%= f.radio_button :shipping, 2 %>
+        <%= f.label :'Select Address' %><br>
+        <div class="ml-3">
+          <%= f.collection_select(:address_id, @addresses, :id, :full_address) %>
+        </div>
       </div>
-    </div>
+    <% end %>
     <div class="form-group ml-5 mt-3">
       <%= f.radio_button :shipping, 3 %>
       <%= f.label :'New Address' %>

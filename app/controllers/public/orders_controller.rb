@@ -1,16 +1,25 @@
 class Public::OrdersController < ApplicationController
   def index
     @orders = current_user.orders
-    binding.pry
   end
 
   def show
   end
 
   def create
+    @cart_items = current_user.cart_items
     @order = Order.new(order_params)
     @order.postal_code.slice!(3)
     @order.save
+    @cart_items.each do |cart_item|
+      order_item = OrderItem.new
+      order_item.item_id = cart_item.item_id
+      order_item.order_id = @order.id
+      order_item.price = cart_item.item.price * $tax_rate
+      order_item.amount = cart_item.amount
+      order_item.save
+    end
+    @cart_items.destroy_all
     redirect_to root_path
   end
 

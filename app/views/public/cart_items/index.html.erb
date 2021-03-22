@@ -3,6 +3,8 @@
   <%= link_to 'Continue Shopping', root_path, class:'btn btn-primary btn-sm ml-auto' %>
   <%= link_to 'Deselect all Items', cart_item_destroy_all_path, method: :delete, data: {confirm: '本当にカートを空にしてよろしいですか？'}, class:'btn btn-danger btn-sm ml-3' %>
 </div>
+<%= render'parts/user/notice' %>
+
 <table class="table">
   <tbody>
     <% @cart_items.each do |cart_item| %>

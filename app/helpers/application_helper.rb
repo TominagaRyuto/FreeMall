@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def TAX(price)
-    @tax = ((price * 1.1).round(2)).ceil.to_s(:delimited)
+    @tax = ((price * $tax_rate).round(2)).ceil.to_s(:delimited)
     ("¥#{@tax}")
   end
 end
