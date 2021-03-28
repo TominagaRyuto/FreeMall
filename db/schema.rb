@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_220949) do
     t.integer "shop_id", null: false
     t.string "name", default: "", null: false
     t.string "image_id", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.integer "price", null: false
     t.integer "stock", null: false
     t.boolean "is_active", default: true, null: false
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_220949) do
     t.integer "user_id", null: false
     t.integer "shop_genre_id", null: false
     t.string "name", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.integer "prefectures"
     t.string "address"
     t.text "official_hp"
