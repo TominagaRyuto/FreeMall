@@ -1,8 +1,8 @@
 class CreateShops < ActiveRecord::Migration[5.2]
   def change
     create_table :shops do |t|
-      t.integer :user_id,           null: false, default: ""
-      t.integer :shop_genre_id,     null: false, default: ""
+      t.integer :user_id,           null: false
+      t.integer :shop_genre_id,     null: false
       t.string :name,               null: false, default: ""
       t.text :introduction,         null: false, default: ""
       t.integer :prefectures
