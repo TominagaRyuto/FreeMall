@@ -1,10 +1,4 @@
 class Public::OrdersController < ApplicationController
-  def index
-    @orders = current_user.orders
-  end
-
-  def show
-  end
 
   def create
     @cart_items = current_user.cart_items
@@ -20,7 +14,7 @@ class Public::OrdersController < ApplicationController
       order_item.save
     end
     @cart_items.destroy_all
-    redirect_to root_path
+    redirect_to root_path, notice: '注文を確定しました'
   end
 
   def new

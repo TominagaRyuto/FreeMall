@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
-      get 'about' => 'homes#about'
     resource :users, only:[:show, :edit, :update]
       get 'users/confirm' => 'users#confirm', as: 'users_confirm'
       patch 'users/cancellation' => 'users#cancellation', as: 'users_cancellation'
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
     end
     resources :cart_items, :except => [:show, :new, :edit]
       delete 'cart_item/destroy_all' => 'cart_items#destroy_all'
-    resources :orders, :except =>[:update, :destroy, :edit]
+    resources :orders, :except =>[:update, :destroy, :edit, :index, :show]
       post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
   end
 
